@@ -15,7 +15,8 @@ function App() {
           <Route path={"/"} element={<MainLayout />}>
             <Route index element={<LandingPage />}/>
             <Route path={"/about"} element={<AboutPage />}/>
-            <Route path={"/search"} element={<SearchPage />}/>
+            {/* <Route path={"/search"} element={<SearchPage />}/> */}
+            <Route path={"/search/:filmID"} element={<SearchPage />}/>
           </Route>
         </Routes>
       </Router>

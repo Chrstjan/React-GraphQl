@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import { request } from "graphql-request"
 import { allFilms } from "../queries/allFilms"
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const LandingPage = () => {
 
@@ -14,10 +15,18 @@ export const LandingPage = () => {
         console.log("Data:", data);
     }, [data])
 
+    if (isLoading) {
+        return (<div>Fetching data from a galaxy far far away</div>);
+    }
+
+    if (error) {
+        return (<div>This is not the data you're looking for</div>);
+    }
+    
     return (
-        <div>{data?.allFilms?.films?.map((item) => {
+        <div style={{display: "flex", flexDirection: "column", gap: "1rem"}}>{data?.allFilms?.films?.map((item) => {
             return (
-                <p key={item.title}>{item.title}</p>
+                <Link to={`/search/${item.id}`} key={item.title}>Star Wars: {item.title}</Link>
             )
         })}</div>
     )
