@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useFetch } from "./hooks/useFetch";
 import { useImages } from "./hooks/useImages";
-import "./App.scss";
+import { MainLayout } from "./layouts/MainLayout";
 import { LandingPage } from "./pages/LandingPage";
 import { AboutPage } from "./pages/AboutPage";
 import { SearchPage } from "./pages/SearchPage";
-import { MainLayout } from "./layouts/MainLayout";
+import "./App.scss";
 
 function App() {
   return (
